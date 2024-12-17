@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f0c8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 700px;
+            background-color: #616ae7;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(20, 30, 50, 50);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #2f43b8;
+            color: rgb(245, 232, 232);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .messages {
+            padding: 15px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 75%;
+        }
+        .message.sent {
+            background-color: #e1ffe1;
+            align-self: flex-end;
+        }
+        .message.received {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+        }
+        .input-area {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            justify-content: flex-end;
+        }
+        /* Styles for the "Next" button */
+        .input-area .button {
+            padding: 10px 20px;
+            background-color: #f3f3f5;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .input-area .button:hover {
+            background-color: #b5b3be;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">Claire Bernardo</div>
+    <div class="messages">
+        <div class="message sent">Hello, I want to say is you are so beautiful on my eyes. Actually ikaw talaga yung gusto ko. Yung binigay ni ann yung fb nya ikaw talaga hinahanap at inaalam ang pangalan. Once na binigyan ko yung link na to is I am serious about it and ayoko na palagpasin kung ano meron. I'm not best guy nor perfect one. But I will do all my best para maging masaya ka my karamay ka at best buddies mo. I will give my best version of me. Ayoko na bumalik sa sakit ng dinadanas sa pag mamahal. It is okay if you are not ready or what you can say no if you dont want. No pressure hindi din pinipilit it is your choice not mine. Puso mo pa din masusunod kasi ikaw my ari nyan at ikaw yung mag aalaga ng puso mo kung susugal ka or hindi. Basta no matter what nandyan ako palagi sayo hindi ka mag sisi if you are with me or choose me. I will do all the things make you feel safe and happy. If we have argue or something that make misunderstand tell me a bit if you cant tell I give you space and think and understand the situation ayoko yung mag babangayan tayo tapos puro ganun nalang pag napuno kasi sasabog. I want to give space para makapag isip at mag usap pag magaan na yung pakiramdam. </div>
+    <div class="input-area">
+        <a href="FirstPage.html" class="button">Next</a>
+    </div>
+</div>
+
+</body>
+</html>

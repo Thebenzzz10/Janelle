@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Your Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #95bce0 20%, #090ce6 100%);
+        }
+        .message-card {
+            text-align: center;
+            max-width: 600px;
+            padding: 50px;
+            border-radius: 20px;
+            background-color: rgba(43, 39, 250, 0.9);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .message-card h1 {
+            font-size: 1.8em;
+            color: #f7f7f7;
+        }
+        .message-card label {
+            display: block;
+            font-size: 1em;
+            margin-top: 10px;
+            color: #faefef;
+        }
+        .message-card input, .message-card textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .message-card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .message-card button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-card">
+        <h1>Bakit gusto mo ako manligaw?</h1>
+        <form id="contact-form">
+            <label for="to_name">Your Name:</label>
+            <input type="text" id="to_name" name="to_name" required>
+
+            <label for="reply_to">Your Email:</label>
+            <input type="email" id="reply_to" name="reply_to" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("WKQugshxD54_RrrEV");  // Your EmailJS Public Key
+        })();
+        
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();  // Prevent the default form submission
+
+                // Log data to check form before sending
+                console.log("Form submitted");
+
+                // Send EmailJS form
+                emailjs.sendForm('service_q5nycnh', 'template_ffu7k3y', this)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Message sent successfully!');
+                    }, function(error) {
+                        console.error('FAILED...', error);
+                        alert('Oops! Something went wrong. Please try again later.');
+                    });
+            });
+        };
+    </script>
+</body>
+</html>

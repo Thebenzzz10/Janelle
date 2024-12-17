@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Special Message for You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #c5b0f7 0%, #1d02b6 100%);
+            overflow: hidden;
+        }
+        .card {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card h1 {
+            font-size: 2em;
+            color: #3610df;
+        }
+        .card p {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .heart {
+            color: #e3e3f0;
+            font-size: 2em;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #291cda;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #1a054d;
+        }
+        .button-no {
+            background-color: #333;
+            position: relative;
+        }
+        .button-no:hover {
+            background-color: #555;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #fa5a5a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Pwede manligaw?</h1>
+        <p>Claire Bernardo</p>
+        <div class="heart">❤️</div>
+        <a href="SecondPage.html" class="button">Yes</a>
+        <button class="button button-no" onclick="handleNoClick()">No</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <p>Are you really sure? 😢</p>
+            <button onclick="confirmNo()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+
+        function handleNoClick() {
+            noClickCount++;
+            if (noClickCount < 3) {
+                moveButtonRandomly();
+            } else {
+                // Show custom modal on the third click
+                document.getElementById("confirmationModal").style.display = "flex";
+            }
+        }
+
+        function moveButtonRandomly() {
+            const button = document.querySelector('.button-no');
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            button.style.position = "absolute";
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
+        }
+
+        function confirmNo() {
+            window.location.href = "ThirdPage.html";
+        }
+    </script>
+</body>
+</html>
